@@ -1,0 +1,11 @@
+{
+  "name": "web-audit-storage-target_csv_storage",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "cli-table3": "^0.6.5",
+    "web_audit": "https://github.com/tsecher/web-audit.git#loggers"
+  }
+}
