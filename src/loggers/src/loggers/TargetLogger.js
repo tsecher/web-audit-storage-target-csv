@@ -81,9 +81,8 @@ class TargetLoggerClass {
 			const summary = {};
 			const labels = targetHandler.getStructureLabels(stored, group_id, context);
 
-			Object.entries(parsedData.data).forEach( ([id, data]) => {
-				let value = data.value;
-				summary[ labels[id] ] = data.error ? colors.red(data.value) : data.value;
+			Object.entries(labels).forEach(([id, data]) => {
+				summary[labels[id]] = parsedData.data[id].value;
 			});
 
 			this.addSummaries(stored, group_id, summary);
