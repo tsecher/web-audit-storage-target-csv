@@ -6,6 +6,6 @@
   "type": "module",
   "dependencies": {
     "cli-table3": "^0.6.5",
-    "web_audit": "https://github.com/tsecher/web-audit.git#loggers"
+    "web_audit": "https://github.com/tsecher/web-audit.git"
   }
 }
