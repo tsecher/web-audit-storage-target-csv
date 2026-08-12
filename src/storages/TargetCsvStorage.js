@@ -3,7 +3,6 @@ import targetHandler from 'web_audit/dist/target/TargetHandler.js'
 
 import fs from 'fs';
 import path from 'path'
-import { DefaultDeserializer } from 'v8';
 
 /**
  * TargetCsvStorage class.
@@ -37,9 +36,9 @@ class TargetCsvStorageClass extends CSVStorage {
             const filePath = this.getFilePath(groupPath, context);
             if( !fs.existsSync(filePath)){
                 fs.mkdirSync(path.dirname(filePath), { recursive: true });
-                    
+
                 fs.appendFileSync(
-                    filePath, 
+                    filePath,
                     this.getCSVLine(
                         targetHandler.getStructureLabels(stored, group_id, context),
                          groupPath

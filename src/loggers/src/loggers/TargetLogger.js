@@ -29,12 +29,12 @@ class TargetLoggerClass {
 			const stored = data.data?.module || null;
 			const summary = data.data.summary || null;
 			const group_id = data.data.group_id || null;
-			
-			
+
+
 			if (stored && summary) {
 				this.onAnalyse(stored, group_id, context, summary);
 			}
-		});	
+		});
 
 		// Render at the end of the analysis.
 		context.eventBus.on(ModuleEvents.afterAllUrlProcess, () => this.renderSummary());
@@ -76,13 +76,13 @@ class TargetLoggerClass {
 
 	onAnalyse(stored, group_id, context, result) {
 		const parsedData = targetHandler.parseErrorData(stored, group_id, context, result);
-		
+
 		if( parsedData.lineError ) {
 			const summary = {};
 			const labels = targetHandler.getStructureLabels(stored, group_id, context);
 
 			Object.entries(labels).forEach(([id, data]) => {
-				summary[labels[id]] = parsedData.data[id].value;
+				summary[labels[id]] = parsedData.data[id]?.value;
 			});
 
 			this.addSummaries(stored, group_id, summary);
