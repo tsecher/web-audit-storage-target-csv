@@ -46,3 +46,15 @@ export const config = {
             }
     }
 ```
+
+4. Configure the report file (html) on your web-audit.config.js file :
+```
+export const config = {
+	...
+    targets_settings: {
+		report: {
+			enable: true,
+			path: `./analyses/errors.html`,
+		}
+	},
+```
