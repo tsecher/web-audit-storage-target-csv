@@ -4,6 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "type": "module",
+  "keywords": [
+    "web-audit",
+    "web-audit-plugin",
+    "lighthouse"
+  ],
   "dependencies": {
     "cli-table3": "^0.6.5",
     "web_audit": "https://github.com/tsecher/web-audit.git"
