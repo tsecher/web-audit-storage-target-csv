@@ -9,11 +9,11 @@ Provides target logger and storage for web_audit.
 export const config = {
 	loggers: [
         ...
-        'node_modules/web-audit-storage-target-csv/src/loggers/src/loggers/TargetLogger.js'
+        'node_modules/web-audit-storage-target_csv_storage/src/loggers/TargetLogger.js'
     ],
     storages: [
         ...
-        "node_modules/web-audit-storage-target-csv/src/storages/TargetCsvStorage.js"
+        'node_modules/web-audit-storage-target-csv/src/storages/TargetCsvStorage.js',
     ]
 },
 ```
@@ -32,19 +32,24 @@ export const config = {
 example: 
 ```
 export const config = {
-	...
+    ...
     targets: {
-        ecooindex:{
+        ecoindex:{
             ecoindex: {
                 grade: 'B',
                 ecoIndex: '75',
             }
         },
-        page_speed: 
+        page_speed: {
+            page_speed: {
+                'first-contentful-paint': 300,
+            },
             page_speed_details: {
-                'legacy-javascript-insight-score': 0.5,
+                'total-byte-weight': 500,
             }
+        }
     }
+    
 ```
 
 4. Configure the report file (html) on your web-audit.config.js file :

@@ -2,7 +2,7 @@ import CSVStorage from 'web_audit/dist/storage/csv/CSVStorage.js'
 import targetHandler from 'web_audit/dist/target/TargetHandler.js'
 
 import fs from 'fs';
-import path from 'path'
+import path, { parse } from 'path'
 
 /**
  * TargetCsvStorage class.
@@ -31,21 +31,16 @@ class TargetCsvStorageClass extends CSVStorage {
 
     initErrorStorage(stored, group_id, context, data){
         const parsedData = targetHandler.parseErrorData(stored, group_id, context, data);
+        
+        
         if( parsedData.lineError ){
             const groupPath = 'error/' + this.getGroupPath(stored, group_id);
             const filePath = this.getFilePath(groupPath, context);
-            if( !fs.existsSync(filePath)){
-                fs.mkdirSync(path.dirname(filePath), { recursive: true });
+           
+            this.createFile(filePath, stored, group_id);
 
-                fs.appendFileSync(
-                    filePath,
-                    this.getCSVLine(
-                        targetHandler.getStructureLabels(stored, group_id, context),
-                         groupPath
-                    )
-                );
-            }
-            fs.appendFileSync(filePath, this.getCSVLine(data, groupPath));
+            const header = Object.keys(stored.getSchema().structure[group_id].structure);
+            fs.appendFileSync(filePath, this.getCSVLine(data, header, groupPath));
         }
     }
 
