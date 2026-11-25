@@ -7,11 +7,11 @@
   "keywords": [
     "web-audit",
     "web-audit-plugin",
-    "lighthouse"
+    "target"
   ],
   "dependencies": {
     "cli-table3": "^0.6.5",
     "colors": "^1.4.0",
-    "web_audit": "https://github.com/tsecher/web-audit.git"
+    "web_audit": "^5.0"
   }
 }
